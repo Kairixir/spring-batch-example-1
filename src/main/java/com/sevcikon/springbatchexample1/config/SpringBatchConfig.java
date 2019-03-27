@@ -3,6 +3,7 @@ package com.sevcikon.springbatchexample1.config;
 import com.sevcikon.springbatchexample1.model.User;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
@@ -20,6 +21,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
 @Configuration
+@EnableBatchProcessing
 public class SpringBatchConfig {
 
     @Bean
@@ -53,7 +55,7 @@ public class SpringBatchConfig {
 
     @Bean
     public LineMapper<User> lineMapper() {
-        DefaultLineMapper<User> defaultLineMapper=new DefaultLineMapper<>();
+        DefaultLineMapper<User> defaultLineMapper = new DefaultLineMapper<>();
         DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
 
         lineTokenizer.setDelimiter(",");

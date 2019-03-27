@@ -15,6 +15,9 @@ public class User {
 
     private Integer salary;
 
+    public User() {
+    }
+
     public User(Integer id, String name, String dept, Integer salary) {
         this.id = id;
         this.name = name;
